@@ -1,0 +1,58 @@
+<HTML>
+
+<HEAD>
+	<TITLE>Maniac's Pixelserv</TITLE>
+</HEAD>
+
+<BODY BGCOLOR=white TEXT=black LINK=blue>
+	<H1>Pixelserv 1.1</H1>
+
+	Pixelserv is a super minimal webserver, it's one and only purpose
+	is serving a 1x1 pixel transparent gif file. Using some creative
+	firewalling (netfilter/iptables) rules you can redirect some
+	webrequests (for adds for example) to pixelserv.
+
+<H1>Authors</H1>
+Piet Wintjens originally wrote pixelserv, I've (Mark Janssen) made some
+slight modifications and enhancements to it. It's really trivial, but very
+handy. :)
+
+The main webpage for pixelserv is
+<A HREF="http://proxytunnel.sf.net/pixelserv.html">on SF.net</A>
+
+<H1>License</H1>
+Pixelserv is covered by the new BSD (no advertising clause) license
+
+<H1>Usage</H1>
+Running pixelserv is very easy. There are currently two versions of pixelserv. One runs as a daemon, the other version runs from inetd. Decide which version suits you better (daemon if its accessed often, inetd if less often or you want easier configurability.)
+
+<H2>Daemon version (1.0)</H2>
+<P>
+To run the daemon version of pixelserv, change the 'Port' value to match the tcp-port you want pixelserv to listen on. Then just start it in the background, or have it started from /etc/inittab</P>
+
+<H2>Inetd version (1.1)</H2>
+<P>The inetd version doesn't have any configuration in pixelserv itself. You can run it on one or more ports easily. Add the following entry (using any portnumber you want) to your '/etc/services' file:<BR>
+<PRE>
+pixelserv      65000/tcp                       # Pixelserv, add blocker
+</PRE>
+Then add the pixelserv entry to your '/etc/inetd.conf'
+<PRE>
+pixelserv stream tcp nowait nobody /path/to/pixelserv.pl pixelserv.pl
+</PRE>
+<H1>Download</H1>
+<UL>
+<LI><A HREF="files/pixelserv-inetd.pl">pixelserv-inetd.pl</A> (version 1.1)
+<LI><A HREF="files/pixelserv.pl">pixelserv.pl</A> (original version 1.0)
+</UL>
+
+<H1>Links</H1>
+<UL>
+	<LI>Maniac's website: <A HREF="http://www.maniac.nl">www.maniac.nl</A>, and his outdated (usually) <A HREF="http://www.maniac.nl/proxytunnel.html">proxytunnel</A> webpage.
+
+
+<P>Mark Janssen &lt;<A HREF="mailto:maniac@maniac.nl">maniac@maniac.nl</A>&gt;</P>
+
+<A href="http://sourceforge.net"><IMG src="http://sourceforge.net/sflogo.php?group_id=39840" width="88" height="31" border="0" alt="SourceForge Logo"></A>
+
+</BODY>
+</HTML>
