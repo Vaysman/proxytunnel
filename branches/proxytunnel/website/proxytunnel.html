@@ -1,0 +1,131 @@
+<HTML>
+
+<HEAD>
+	<TITLE>Maniac's Proxytunnel</TITLE>
+</HEAD>
+
+<BODY BGCOLOR=white TEXT=black LINK=blue>
+	<H1>Proxytunnel 1.0.6</H1>
+
+	Proxytunnel is a program that connects stdin and stdout to a
+	server somewhere on the network, through a standard HTTPS proxy.
+	Here's an extract from the included README file:
+
+<PRE>
+	This is proxytunnel, a program that connects stdin and stdout
+	to an origin server somewhere in the Internet through an industry
+	standard HTTPS proxy. I originally wrote this program to be used
+	as an extension to SSH, to be able to SSH to my box at home. In 
+	this file, I will describe the use with SSH. If you want to use it
+	with some other application, feel free, and let me know!
+</PRE>
+
+<H1>Authors</H1>
+Proxytunnel was originally written by Jos Visser, and then modified by Mark Janssen. We have both used it to access our home-servers from the company lan (where we had only HTTP(S) access), and it has been succesfully used on Linux and Win32(Cygwin) using OpenSSH 2.5 and newer.
+
+The main webpage for proxytunnel is
+<A HREF="proxytunnel.sf.net">Proxytunnel.sourceforge.net</A>
+and our SourceForge
+<A HREF="http://sourceforge.net/projects/proxytunnel/">project page</A>
+
+<H1>License</H1>
+Proxytunnel is covered by the GNU GPL license. The previous version
+included some non-gpl code, which has been removed and replaced by GPL
+code. The code Jos and Mark wrote has been reassigned under the GPL. The
+base64 code snippet came with this copyright notice:
+<PRE>
+/* 
+ * This base64 code is heavily modified from fetchmail (also GPL'd, of
+ * course) by Brendan Cully <brendan@kublai.com>.
+ * 
+ * Original copyright notice:
+ * 
+ * The code in the fetchmail distribution is Copyright 1997 by Eric
+ * S. Raymond.  Portions are also copyrighted by Carl Harris, 1993
+ * and 1995.  Copyright retained for the purpose of protecting free
+ * redistribution of source. 
+ */
+</PRE>
+
+
+<H1>Usage</H1>
+
+Proxytunnel is very easy to use, when running proxytunnel with the help
+option it specifies it's commandline options.
+
+	<PRE>
+# proxytunnel --help
+Proxytunnel 1.0.5
+Jos Visser (Muppet) <josv@osp.nl>, Mark Janssen (Maniac) <maniac@maniac.nl>
+
+Purpose:
+  Build generic tunnels trough HTTPS proxy's, supports HTTP authorization
+
+Usage: Proxytunnel [OPTIONS]...
+   -h         --help              Print help and exit
+   -V         --version           Print version and exit
+   -i         --inetd             Run from inetd (default=off)
+   -u STRING  --user=STRING       Username to send to HTTPS proxy for auth
+   -s STRING  --pass=STRING       Password to send to HTTPS proxy for auth
+   -g STRING  --proxyhost=STRING  HTTPS Proxy host to connect to
+   -G INT     --proxyport=INT     HTTPS Proxy portnumber to connect to
+   -d STRING  --desthost=STRING   Destination host to built the tunnel to
+   -D INT     --destport=INT      Destination portnumber to built the tunnel to
+   -v         --verbose           Turn on verbosity (default=off)
+</PRE>
+
+To use this program with OpenSSH to connect to a host somewhere, create
+a $HOME/.ssh/config file with the following content:
+
+<PRE>
+	Host foobar
+		ProtocolKeepAlives 30
+		ProxyCommand /path/to/proxytunnel -g proxy.customer.com -G 8080 -u user -s password -d mybox.athome.nl -D 443
+</PRE>
+
+With:
+
+<TABLE BORDER=1>
+	<TR><TD>foobar</TD><TD>The symbolic name of the host you want to connect to</TD></TR>
+	<TR><TD>proxy.customer.com</TD><TD>The host name of the proxy you want to connect through</TD></TR>
+	<TR><TD>8080</TD><TD>The port number where the proxy software listens to</TD></TR>
+	<TR><TD>user</TD><TD>Your proxy userid</TD></TR>
+	<TR><TD>password</TD><TD>Your proxy password</TD></TR>
+	<TR><TD>mybox.athome.nl</TD><TD>The hostname of the box you want to connect to (ultimately)</TD></TR>
+	<TR><TD>443</TD><TD>The port number of the SSH daemon on mybox.athome.nl</TD></TR>
+</TABLE>
+
+<P>If your proxy doesn't require the username and password for using it,
+you can skip these options.<P>
+
+<P>The ProtocolKeepAlives line is used to send occasional NULL packets (if your SSH version supports this). This is used to keep the connection up, since HTTPS proxy's will usually drop the connection if it remains idle for some time. Experiment with the time between the NULL packets (in seconds)</P>
+
+<P>Most HTTPS proxies do not allow access to ports other than 443 (HTTPS)
+and 563 (SNEWS), so some hacking is necessary to start the SSH daemon on
+the required port. (On the server side add an extra Port statement in
+the sshd_config file)</P>
+
+<P>When all this is in place, execute an "ssh foobar" and you're in business!</P>
+
+<P>Share and Enjoy!</P>
+
+<H1>Download</H1>
+<UL>
+<LI><A HREF="files/proxytunnel-1.0.6.tar.gz">proxytunnel-1.0.6.tar.gz</A>
+<LI><A HREF="files/proxytunnel-1.0.5.tar.gz">proxytunnel-1.0.5.tar.gz</A>
+<LI><A HREF="files/proxytunnel-1.0.4.tar.gz">proxytunnel-1.0.4.tar.gz</A>
+</UL>
+
+<H1>Links</H1>
+<UL>
+	<LI>Maniac's website: <A HREF="http://www.maniac.nl">www.maniac.nl</A>, and his outdated (usually) <A HREF="http://www.maniac.nl/proxytunnel.html">proxytunnel</A> webpage.
+	<LI>Muppet's website: <A HREF="http://www.josvisser.nl">www.josvisser.nl</A> and (also usually outdated) <A HREF="http://www.josvisser.nl/proxytunnel/">proxytunnel</A> webpage.
+
+
+<P>Jos Visser &lt;<A HREF="mailto:josv@osp.nl">josv@osp.nl</A>&gt;<BR>
+Mark Janssen &lt;<A HREF="mailto:maniac@maniac.nl">maniac@maniac.nl</A>&gt;</P>
+
+<A href="http://sourceforge.net"><IMG src="http://sourceforge.net/sflogo.php?group_id=39840" width="88" height="31" border="0" alt="SourceForge Logo"></A>
+
+</BODY>
+</HTML>
