@@ -4,6 +4,9 @@
 
 <h3 CLASS="headline">Downloading source packages</h3>
 <UL>
+<LI><A HREF="http://sourceforge.net/project/showfiles.php?group_id=39840&package_id=32673&release_id=565105">proxytunnel-1.8.0.tgz</A>
+<LI><A HREF="http://sourceforge.net/project/showfiles.php?group_id=39840&package_id=32673&release_id=528619">proxytunnel-1.7.2.tgz</A>
+<LI><A HREF="http://sourceforge.net/project/showfiles.php?group_id=39840&package_id=32673&release_id=489199">proxytunnel-1.7.0.tgz</A>
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.6.3.tgz?download">proxytunnel-1.6.3.tgz</A>
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.6.3.tgz.asc?download">proxytunnel-1.6.3.tgz.asc</A>
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.6.0.tgz?download">proxytunnel-1.6.0.tgz</A>
