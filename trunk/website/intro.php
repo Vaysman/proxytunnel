@@ -1,12 +1,7 @@
-<HTML>
+ <?php include("_begin.php"); ?>
 
-<HEAD>
-	<LINK REL=stylesheet HREF="stylesheet.css" TYPE="text/css">
-	<TITLE>ProxyTunnel: Punching holes in the corporate firewall</TITLE>
-</HEAD>
+<h2 class="headline">ProxyTunnel Introduction</h2>
 
-<BODY>
-<P CLASS=title>ProxyTunnel Introduction</P>
 <P>ProxyTunnel is a program that connects stdin and stdout to a server somewhere on the network, through a standard HTTPS proxy. We mostly use it to tunnel SSH sessions through HTTP(S) proxies, allowing us to do many things that wouldn't be possible without ProxyTunnel.</P>
 
 <P>
@@ -58,5 +53,5 @@ this knowledge it is possible to forward and port anywhere. I myself usually
 setup some port-forwardings for my mail (2 imap tunnels) and usenet. But i'm
 sure you can think up of many things you'd like to connect to. Now you can.</P>
 
-</BODY>
-</HTML>
+
+<?php include("_end.php"); ?>

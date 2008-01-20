@@ -1,0 +1,1 @@
+<P>Version 1.6.0 of proxytunnel is finished. There have been lots of changes and new features, so we released a release candidate version first. Please try this version, and report any issues you have with it. Proxytunnel now depends on openssl for it's NTLM authentication (md4/md5) and SSL tunneling support, so make sure you have openssl 0.9.8 and it's header-files.</P>

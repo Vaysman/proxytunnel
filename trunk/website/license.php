@@ -1,45 +1,63 @@
-<HTML>
+<?php include("_begin.php"); ?>
 
-<HEAD>
-	<LINK REL=stylesheet HREF="stylesheet.css" TYPE="text/css">
-	<TITLE>ProxyTunnel: Punching holes in the corporate firewall</TITLE>
-</HEAD>
-
-<BODY>
-<P CLASS=title>ProxyTunnel Authors and License</P>
-<P CLASS=subtitle>Authors</P>
+<h1 CLASS=headline>ProxyTunnel Authors and License</h1>
+<h2 CLASS=headline>Authors</h2>
 <P>Proxytunnel was originally written by Jos Visser (The Muppet), and tested and enhanced by Mark Janssen. We both use it extensively to access our home-servers from closed company lan's (where we have only HTTP(S) access), and it has been succesfully used on Linux and Win32(using Cygwin) using OpenSSH 2.5 and newer.</P>
 
-<P CLASS=subtitle>Jos Visser</P>
+<h3 CLASS=headline>Jos Visser</h3>
 <P>Jos Visser (a.k.a. The Muppet) is a prominent Unix Guru in The Netherlands and beyond. Besides programming he frequents Unix conferences and events. He mostly does his work for OSP.nl</P>
 
-<P CLASS=subtitle>Mark Janssen</P>
+<h3 CLASS=headline>Mark Janssen</h3>
 <P>Mark Janssen (a.k.a. Maniac) is a unix administrator working for Syconos.nl. He met up with Jos at a customer (BigAcme Corp) where they both developed ProxyTunnel to access their mail and shells :)</P>
 
-<P CLASS=subtitle>Other contributors</P>
+<h2 CLASS=headline>Other contributors</h2>
 <P>The following people have also helped in testing, debugging and sending
 patches for proxytunnel:
-<UL>
-<LI>Ralph Loader &lt;suckfish(at)ihug.co.nz&gt; -- Broken DNS w/ DynDNS patch,
-rpm Spec file
-<LI>Martin Senft &lt;martin(at)illicon.de&gt; -- Solaris patches
-<LI>Andrew Griffiths &lt;nullptr(at)tasmail.com&gt; -- String format fixes
+<DL>
+	<dt>Ralph Loader &lt;suckfish(at)ihug.co.nz&gt;</dt>
+		<dd>Broken DNS w/ DynDNS patch, rpm Spec file</dd>
+	<dt>Martin Senft &lt;martin(at)illicon.de&gt;</dt>
+		<dd>Solaris patches</dd>
+	<dt>Andrew Griffiths &lt;nullptr(at)tasmail.com&gt;</dt>
+		<dd>String format fixes</dd>
+	<dt>Dieter Heiliger &lt;dieter(dot)heiliger(at)gmx.de&gt;</dt>
+		<dd>User-agent header idea</dd>
+	<dt>Fred Donck &lt;fd0(at)donck.com&gt;</dt>
+		<dd>User/Pass Env Vars</dd>
+	<dt>Paul Solomon &lt;psolomon(at)tpg.com.au&gt;</dt>
+		<dd>NTLM support</dd>
+	<dt>Joerg Wunsch &lt;j(at)uriah.heep.sax.de&gt;</dt>
+		<dd>Password prompt suggestion</dd>
+	<dt>Roberto Veldhoven &lt;Roberto(dot)Veldhoven(at)atosorigin.com&gt;</dt>
+		<dd>Tandem/HP-Nonstop compile fix</dd>
+	<dt>Stephane Engel &lt;Stephane(dot)Engel(at)macchiati.org&gt;</dt>
+		<dd>Fix for broken proxy</dd>
+	<dt>Mike Frysinger &lt;vapier(at)gentoo.org&gt;</dt>
+		<dd>Makefile fix, 64bit fix</dd>
+	<dt>Alex Peuchert &lt;proxytunnel(at)peuchert.de&gt;</dt>
+		<dd>SSL/Encrypt support</dd>
+	<!--
+	<dt>Name &lt;email&gt;</dt>
+		<dd>Done</dd>
+	-->
 </UL>
 </P>
 
-<P CLASS=subtitle>License</P>
+<h1 CLASS=headline>License</h1>
 <P>Proxytunnel is covered by the GNU GPL license. The previous version
 included some non-gpl code, which has been removed and replaced by GPL
 code. The code Jos and Mark wrote has been reassigned under the GPL. The
 base64 code snippet came with this copyright notice:<BR>
 <CODE>
 /*<BR>
+
  * This base64 code is heavily modified from fetchmail (also GPL'd, of<BR>
  * course) by Brendan Cully <brendan@kublai.com>.<BR>
  *<BR>
  * Original copyright notice:<BR>
  *<BR>
  * The code in the fetchmail distribution is Copyright 1997 by Eric<BR>
+
  * S. Raymond.  Portions are also copyrighted by Carl Harris, 1993<BR>
  * and 1995.  Copyright retained for the purpose of protecting free<BR>
  * redistribution of source.<BR>
@@ -47,7 +65,8 @@ base64 code snippet came with this copyright notice:<BR>
 </CODE><BR>
 For completion, we'll include the entire GNU GPL license verbatim here.</P>
 
-<P CLASS=subtitle>The GNU General Public License version 2</P>
+<h2 CLASS=subtitle>The GNU General Public License version 2</h2>
+
 <P>
 <BLOCKQUOTE>
 <PRE>
@@ -108,7 +127,8 @@ patent must be licensed for everyone's free use or not licensed at all.
 
   The precise terms and conditions for copying, distribution and
 modification follow.
-
+
+
 		    GNU GENERAL PUBLIC LICENSE
    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
@@ -163,12 +183,11 @@ above, provided that you also meet all of these conditions:
     License.  (Exception: if the Program itself is interactive but
     does not normally print such an announcement, your work based on
     the Program is not required to print an announcement.)
-
+
+
 These requirements apply to the modified work as a whole.  If
 identifiable sections of that work are not derived from the Program,
-and can be reasonably considered independent and separate works in
-themselves, then this License, and its terms, do not apply to those
-sections when you distribute them as separate works.  But when you
+and can be reasonably ctribute them as separate works.  But when you
 distribute the same sections as part of a whole which is a work based
 on the Program, the distribution of the whole must be on the terms of
 this License, whose permissions for other licensees extend to the
@@ -209,30 +228,7 @@ The source code for a work means the preferred form of the work for
 making modifications to it.  For an executable work, complete source
 code means all the source code for all modules it contains, plus any
 associated interface definition files, plus the scripts used to
-control compilation and installation of the executable.  However, as a
-special exception, the source code distributed need not include
-anything that is normally distributed (in either source or binary
-form) with the major components (compiler, kernel, and so on) of the
-operating system on which the executable runs, unless that component
-itself accompanies the executable.
-
-If distribution of executable or object code is made by offering
-access to copy from a designated place, then offering equivalent
-access to copy the source code from the same place counts as
-distribution of the source code, even though third parties are not
-compelled to copy the source along with the object code.
-
-  4. You may not copy, modify, sublicense, or distribute the Program
-except as expressly provided under this License.  Any attempt
-otherwise to copy, modify, sublicense or distribute the Program is
-void, and will automatically terminate your rights under this License.
-However, parties who have received copies, or rights, from you under
-this License will not have their licenses terminated so long as such
-parties remain in full compliance.
-
-  5. You are not required to accept this License, since you have not
-signed it.  However, nothing else grants you permission to modify or
-distribute the Program or its derivative works.  These actions are
+control compilation and installation of the executaberivative works.  These actions are
 prohibited by law if you do not accept this License.  Therefore, by
 modifying or distributing the Program (or any work based on the
 Program), you indicate your acceptance of this License to do so, and
@@ -269,26 +265,7 @@ It is not the purpose of this section to induce you to infringe any
 patents or other property right claims or to contest validity of any
 such claims; this section has the sole purpose of protecting the
 integrity of the free software distribution system, which is
-implemented by public license practices.  Many people have made
-generous contributions to the wide range of software distributed
-through that system in reliance on consistent application of that
-system; it is up to the author/donor to decide if he or she is willing
-to distribute software through any other system and a licensee cannot
-impose that choice.
-
-This section is intended to make thoroughly clear what is believed to
-be a consequence of the rest of this License.
-
-  8. If the distribution and/or use of the Program is restricted in
-certain countries either by patents or by copyrighted interfaces, the
-original copyright holder who places the Program under this License
-may add an explicit geographical distribution limitation excluding
-those countries, so that distribution is permitted only in or among
-countries not thus excluded.  In such case, this License incorporates
-the limitation as if written in the body of this License.
-
-  9. The Free Software Foundation may publish revised and/or new versions
-of the General Public License from time to time.  Such new versions will
+implemented by public licw versions will
 be similar in spirit to the present version, but may differ in detail to
 address new problems or concerns.
 
@@ -325,31 +302,7 @@ WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
 REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,
 INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING
 OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED
-TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY
-YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
-PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGES.
-
-		     END OF TERMS AND CONDITIONS
-
-	    How to Apply These Terms to Your New Programs
-
-  If you develop a new program, and you want it to be of the greatest
-possible use to the public, the best way to achieve this is to make it
-free software which everyone can redistribute and change under these terms.
-
-  To do so, attach the following notices to the program.  It is safest
-to attach them to the start of each source file to most effectively
-convey the exclusion of warranty; and each file should have at least
-the "copyright" line and a pointer to where the full notice is found.
-
-    <one line to give the program's name and a brief idea of what it does.>
-    Copyright (C) <year>  <name of author>
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+TO LOSS OF DATA OR Dany later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -393,5 +346,5 @@ library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 </PRE>
 </BLOCKQUOTE>
-</BODY>
-</HTML>
+
+<?php include("_end.php"); ?>

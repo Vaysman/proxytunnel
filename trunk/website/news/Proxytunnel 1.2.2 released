@@ -1,0 +1,1 @@
+<P>I really should update the news page when making new releases ;) We are already up to 1.2.2. This version has a security fix (Storing proxy username and password in env-vars) and some new makefiles (and the older ones cleaned up).</P>

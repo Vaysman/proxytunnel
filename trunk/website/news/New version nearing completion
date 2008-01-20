@@ -1,0 +1,5 @@
+<p>We've been working hard on improving ProxyTunnel even more, we have ported and tested proxytunnel on all systems available to us in the SourceForge.net compile-farm (7 archs) and made the binaries available for download on the download page. Source tarballs have been updated to reflect these changes, as has the CVS tree.</P>
+
+<P>This version (1.1 beta) includes support for running ProxyTunnel as a stand-alone application. This means that it binds itself to a local tcp-port awaiting connections. On receiving a connection, ProxyTunnel will establish a tunnel through the HTTP(S) proxy and begin tunneling.</P>
+
+<P>This feature will make ProxyTunnel even more useful, and we're sure you can think up many new ways to use ProxyTunnel. Using this feature it's also possible to make use of ProxyTunnel from programs like putty and other SSH clients that do not yet support the ProxyCommand directive (like openSSH does).</P>
