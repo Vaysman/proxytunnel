@@ -1,0 +1,503 @@
+@charset "iso-8859-1";
+/*
+	Groundwork and original coding by Stefan Huszics
+	Maintenance and optimizations by David Tenser
+	Code cleanup by Lim Chee Aun
+ */
+
+body {
+ margin: 2ex;
+ color: #000;
+ font-family: tahoma, verdana, sans, arial, helvetica, sans-serif;
+ background: #e8e8e8;
+ max-width: 120ex;
+}
+.box {
+ font-size: 90%;
+ background: #7f97b0 url(images/spacer.png) repeat-x;
+ margin-left: 22ex;
+ color: white;
+ border: black 1px solid;
+ height: 5ex;
+}
+.box h1 {
+ font-weight: normal;
+ font-size: 150%;
+ float: left;
+ margin: 0px 1ex;
+ padding: .5ex 1ex 0ex 0ex;
+ letter-spacing: 3px;
+}
+.box div {
+ font-weight: normal;
+ font-size: 110%;
+ height: 3.5ex;
+ text-align: right;
+ padding: 1ex 1ex 0ex 0ex;
+
+}
+.spacer1 {
+ font-size: 90%;
+ background: url(images/spacer3.png) #446 repeat-x;
+ margin-left: 22ex;
+ height: 2ex;
+ border-color: #000;
+ border-width: 0px 1px 1px;
+ border-style: solid;
+}
+.nav div.spacer2 {
+ border-top-width: 0;
+ font-size: 90%;
+ background: url(images/spacer3.png) #446 repeat-x;
+ margin: 0ex 0ex 2ex;
+ height: 2ex;
+}
+
+
+.linkbar {
+ font-size: 85%;
+ color: #ffffff;
+ text-align: right;
+ padding-right: 1ex;
+}
+.linkbar a:visited, .linkbar a:link {
+	color: #ffffff;
+}
+
+.copy{
+ text-align: center;
+ font-size: 60%;
+ margin-left: 33ex;
+}
+
+.copy,.copy a:link,.copy a:hover, .copy a:visited{
+ color: #009;
+ font-style: normal;
+ text-decoration: none;
+}
+
+.menu {
+ background: #fff url(images/menuback.png) repeat-y;
+ left: 2ex;
+ padding-bottom: 0.5ex;
+ width: 18ex;
+ border: black 1px solid;
+ position: absolute;
+ top: 6.6ex;
+}
+[class="menu"]{
+	position: fixed;
+}
+.nav {
+ margin: 0;
+ text-align: center;
+}
+.nav span {
+	display: none
+}
+.nav div {
+ font-weight: bold;
+ font-size: 90%;
+ background: url(images/spacer2.png) #7f97b0 repeat-x;
+ margin: 1ex 0px 0.5ex;
+ color: #fff;
+ text-align: center;
+ border-style: solid;
+ border-color: #000;
+ border-width: 1px 0px;
+}
+
+
+
+.menu .nav a:link, .menu .nav a:visited {
+ padding-right: 5px;
+ display: block;
+ padding-left: 5px;
+ font-size: 80%;
+ text-align: left;
+ text-decoration: none;
+ color: #339;
+}
+
+
+.nav dt {
+	font-weight: bold;
+}
+.nav dd {
+	margin-left: 0px;
+	padding-left: 0px;
+	
+}
+
+
+
+.nav dl {
+	margin-top: 0px;
+	margin-bottom: 0.5ex;
+}
+
+.nav a:hover {
+ background: url(images/menuhover2.png) repeat-y;
+ text-decoration: none;
+}
+
+.nav dd a:before {
+	content: " » ";
+}
+
+.nav dl.links dd a:before {
+	content: "";
+}
+
+.nav a.indent {
+ margin-left: 0;
+}
+.nav a.indent:before {
+ color: #999;
+ content: "  » ";
+}
+.nav span.menuspace {
+ display: block;
+ border-width: 0;
+ height: .4em;
+}
+.nav a.selected {
+ background: url(images/menuhover.png) repeat-y;
+ color: #000;
+}
+.linkindex #linkindex,
+.linkdownload #linkdownload,
+.linklicense #linklicense,
+.linknews #linknews,
+.linkusage #linkusage,
+.linksupport #linksupport,
+.linkusers #linkusers,
+.linkpaper #linkpaper,
+.linkcontact #linkcontact {
+	background: url(images/menuhover.png) repeat-y;
+	display: block !important;
+}
+
+img {
+ border-width: 0;
+ vertical-align: bottom;
+}
+
+img.onestat { width: 0px; height: 0px;}
+
+div.screenshot {
+	float: right;
+	margin: 15px 0px 0px 10px;
+}
+
+
+div.featurescreenshot {
+	/*border: 1px solid gray;
+	background: #f7f9ff;
+	color: black;
+	padding: 4px;*/
+	float: right;
+	margin: 15px 0px 0px 10px;
+}
+div.featurescreenshot2 {
+	/*border: 1px solid gray;
+	background: #f7f9ff;
+	color: black;
+	padding: 4px;*/
+	float: left;
+	margin: 15px 10px 15px 0px;
+}
+
+p.justify {
+	text-align: justify;
+}
+
+div.featurescreenshot p, div.featurescreenshot2 p {
+		margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 80%;
+	text-align: center;
+}
+/*div.featurescreenshot:hover p, div.featurescreenshot2:hover p {
+	display: block;
+}*/
+
+.main {
+ font-size: 90%;
+ min-height: 57ex;
+ background: #fff url(images/back.png) no-repeat top right;
+ margin: 0ex 0ex 0ex 22ex;
+ border: black 1px solid;
+ padding: 1ex 2ex 0ex;
+ border-top-width: 0;
+}
+a:link,
+a:visited,
+a:active {
+	color: #833; text-decoration: none
+}
+a:hover {
+ color: #c00;
+ text-decoration: underline;
+}
+hr {
+ border-top: 2px solid #ccccff;
+ height: 0;
+ clear: both;
+}
+
+h2.headline {
+ font-size: 130%;
+ margin-bottom: -1ex;
+ color: #009;
+}
+p {
+ line-height: 1.3em;
+ margin-bottom: 1em;
+}
+
+p.extrainfo {
+	font-size: 90%;
+	color: #555;
+	background: transparent;
+	border-left: 2px solid #eecc99;
+	padding-left: 1ex;
+}
+
+h2 {
+	font-weight: normal; font-size: 120%; color: #7c98a6;
+}
+h3 {
+ font-weight: normal;
+ font-size: 110%;
+ margin-bottom: -6px;
+ color: #009;
+ text-align: left;
+ 
+}
+
+.clear {
+	clear: both;
+}
+
+h4 {
+ font-size: 100%;
+ margin-bottom: -1ex;
+ color: #337;
+ text-align: left;
+}
+ol {
+	margin-left: 0px; 
+	padding-left: 25px;
+}
+ul {
+ padding-left: 25px;
+ margin-left: 0px;
+ list-style-type: none;
+ font-size: inherit;
+}
+
+ul.disc {
+	list-style-type: disc;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+div.poll {
+ padding: 0;
+ width: 65%;
+}
+div.poll select {
+	width: 70%
+}
+div.poll h3 {
+ margin-top: 0;
+}
+div.rightside {
+ background: #f7f6fb;
+ float: right;
+ padding: 1ex;
+ margin-top: 3ex;
+ width: 30%;
+ border: #9999cc 1px solid;
+ font-size: 90%;
+}
+div.rightside h3 {
+ margin-top: 0;
+}
+div.rightside:first-child p {
+ margin-bottom: 0;
+ text-align: justify;
+}
+table {
+ background-color: #666699;
+ border: gray 0px solid;
+ border-spacing: 1px;
+ color: inherit;
+}
+td {
+ padding-right: 12px;
+ padding-left: 6px;
+ font-size: 90%;
+ background-color: #fff;
+ vertical-align: top;
+ color: #000;
+}
+th {
+ font-weight: bold;
+ background-color: #666;
+ text-align: left;
+ color: #fff;
+}
+td.keyshortcut, code, kbd, pre, tt {
+	font-family: "courier new", "courier", monospace
+}
+
+code, q {
+ color: #555;
+}
+
+pre, code {
+	background: #f5f8fb;
+	border: 1px solid #e5e8eb;
+	padding: 0.5ex;
+	display: block;
+	color: black;
+	margin: 1em 0em 1em 0em;
+}
+
+.alert {
+	color: #800000;
+	font-weight: normal;
+}
+
+
+div.download {
+ padding: 0;
+ width: 40%;
+}
+div.download select {
+	width: 50%
+}
+div.download h3 {
+ margin-top: 0;
+}
+div.downloadlinks {
+ margin-top: 3ex;
+ background: #f7f6fb;
+ float: right;
+ padding: 1ex;
+ width: 55%;
+ border: gray 1px dashed;
+}
+div.downloadlinks h4 {
+ margin: 0;
+ margin-bottom: -1ex;
+}
+div.downloadlinks p {
+ text-align: justify;
+ margin-top: 1.2ex;
+ margin-bottom: 0.6ex;
+}
+
+fieldset {
+	font-size: 90%;
+	border: 1px solid gray;
+}
+
+fieldset.left {
+	width: 47%;
+}
+
+fieldset.right {
+	 float: right;
+	 width: 47%;
+}
+
+/* For the thumbnail hover on the themes page 
+.thumb a img {width: 0; height: 0; border-width: 0}
+.thumb a:hover img {
+ display: block;
+ position: relative;
+ float: right;
+ top: -8ex;
+ margin-right: 40%;
+ margin-top: 3ex;
+ width: 150px;
+ height: 75px; 
+ background: #f7f6fb;
+ padding: 0px;
+ border: gray 1px solid;
+
+}*/
+
+
+span.credits {
+	border-bottom:1px dashed #000099; /*copy gecko's behaviour to IE*/
+	cursor: help;
+}
+
+
+
+li.newsection {
+    margin-top: 1ex;
+    
+}
+
+
+
+div.pleft {
+  width: 40%; 
+  float: left;
+}
+
+
+
+/* for the faq and tips & tricks page */
+div.answer {
+	margin-left: 3ex;
+	margin-top: 3ex;
+}
+
+div.indent {
+	margin-left: 3ex;
+}
+
+/* for the front page */
+div.news {
+/*	border-top: 2px #e2e1e6 solid;*/
+	border-left: 0.7ex #e2e1e6 solid;
+	border-bottom: 1px #d6d5da solid;
+	border-top: 1px #e2e1e6 solid;
+	border-right: 1px #d2d1d6 solid;
+
+/*	border-bottom: 2px solid #c7c6cb;*/
+	padding-left: 1ex;
+	padding-right: 1ex;
+	margin-bottom: 1ex;
+	margin-top: 2ex;
+	padding-top: 0px;
+	background: #ffffff;
+}
+
+div.news h4 {
+	margin-top: 1ex;
+}
+
+div.news p.info {
+	border-top: 1px solid #e2e1e6;
+	font-size: 80%;
+	width: 35ex;
+	color: #333366;
+	margin-top: -1ex;
+	padding-top: 0px;
+}
+
+div.news p.info a:link, div.news p.info a:visited {
+	color: #333366;
+}
+
+p.newsarchive {
+	text-align: right; font-size: 80%; margin-top: -1ex; padding-top: 0px;
+}

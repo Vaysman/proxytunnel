@@ -1,0 +1,2 @@
+<P>You can find various binaries available for testing on the download page. These were made on the SourceForge compilefarm. They have not (all) been fully tested, but are expected to work. We currently know of an issue with the windows version. It doesn't yet work in standalone mode. We are looking in to this, but if you can provide any assistance we would be very glad, since we are both no win32/cygwin experts.
+</P>

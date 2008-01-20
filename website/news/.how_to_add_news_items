@@ -1,0 +1,11 @@
+Files in this directory starting with a dot (.) are ignored as news items
+So you can create a news-item with a dot first, and rename it when it needs
+to go live.
+
+The entire text in the file is placed as the news-item, any HTML and php is
+allowed, as it is included verbatim.
+
+The file-modification time is used to create the date on the news-item
+If you need to alter the date, use touch -d YYYY-MM-dDD <file>
+
+The file-name is used as the news-item title, it's placed in a <h3> 

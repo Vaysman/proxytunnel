@@ -1,0 +1,1 @@
+<P>Version 1.5.0 of proxytunnel has arrived after a long, very long wait. This release includes NTLM proxy support. You can now also specify your proxy username and password using ENV variables, so they are no longer visible in process-lists. Everyone is recommended to upgrade.</P>

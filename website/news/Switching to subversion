@@ -1,0 +1,2 @@
+<P>We're in the process of switching from CVS to subversion for our revision control. We've had a svn tree for a while now, but we're now moving development to that tree and abandoning the cvs tree. We'll update some webpages soon to point to the new trees and document how to use them.<BR>
+For the time being, you can browse the svn-tree with <A HREF="http://svn.sourceforge.net/viewvc/proxytunnel/trunk/proxytunnel/">viewvc</A></P>
