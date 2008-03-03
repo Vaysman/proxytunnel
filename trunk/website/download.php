@@ -7,6 +7,7 @@
 
 <h3 CLASS="headline">Downloading source packages</h3>
 <P><UL>
+<LI><A HREF="http://downloads.sourceforge.net/proxytunnel/proxytunnel-1.9.0.tgz">proxytunnel-1.9.0.tgz</A>
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.8.0.tgz?download">proxytunnel-1.8.0.tgz</A>
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.8.0.tgz.asc?download">proxytunnel-1.8.0.tgz.asc</A> (pgp/gpg signature)
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.7.2.tgz?download">proxytunnel-1.7.2.tgz</A>
@@ -36,6 +37,7 @@ or browse the ProxyTunnel subversion tree at:
 <h3 CLASS="headline">Precompiled binaries for your platform</h3>
 <P>This list contains binaries created on the sourceforge compile farm. They may be older releases (just proxytunnel binary, nothing else). If at all possible, compile your own.
 <UL>
+<LI><A HREF="http://downloads.sourceforge.net/proxytunnel/proxytunnel-190-cygwin.zip">proxytunnel-1.9.0-cugwin.zip</A> (version 1.9.0 for windows, executable + cygwin libs)
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel.exe?download">proxytunnel.exe</A> (version 1.8.0 for windows, only executable)
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.7.0-win32.zip?download">proxytunnel-1.7.0-win32.zip</A>
 <LI><A HREF="http://prdownloads.sourceforge.net/proxytunnel/proxytunnel-1.6.2-rc-cygwin.zip?download">proxytunnel-1.6.2-rc-cygwin.zip</A>, version 1.6.2-rc for windows, includes required cygwin libraries, linked with ssl.
