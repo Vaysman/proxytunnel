@@ -26,7 +26,7 @@ HTTP proxy authentication
 Most proxies however only allow connections to a number of pre-defined ports.
 These ports usually include 80(http) and 443(https). Some other proxies also
 allow traffic on other ports or ranges. Try to find out what ports your proxy
-allows you to connect through. You best guess is to test for the named 80 and
+allows you to connect through. Your best guess is to test for 80 and
 443, and then check for some other common ports like 8000, 8080, 8081, 8082 and
 the nntp ports 119(nntp) and 563(snntp).</P>
 
