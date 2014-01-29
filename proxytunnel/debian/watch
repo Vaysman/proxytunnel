@@ -1,0 +1,8 @@
+# Watchfile for proxytunnel
+# See uscan(1) for format
+
+# Compulsory line, this is a version 3 file
+version=3
+
+http://proxytunnel.sourceforge.net/download.php \
+  http://.*downloads.sourceforge.net/proxytunnel/proxytunnel-(.*)\.tgz

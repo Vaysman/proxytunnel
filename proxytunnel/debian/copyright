@@ -1,31 +1,140 @@
-This package was debianized by Mark Janssen <maniac@maniac.nl> on
-Mon Aug 15 12:20:26 CEST 2005
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: proxytunnel
+Upstream-Contact: Mark Janssen <maniac@maniac.nl>
+ Jos Visser <josv@osp.nl>
+Source: http://proxytunnel.sourceforge.net/
 
-It was downloaded from http://proxytunnel.sourceforge.net
+Files: *
+Copyright: 2001-2008 Mark Janssen and Jos Visser
+License: GPL-2 with OpenSSL exception
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later
+ version.
+ .
+ In addition, as a special exception, Mark Janssen and Jos Visser
+ give permission to link the code of proxytunnel with the OpenSSL
+ project's "OpenSSL" library (or with modified versions of it that
+ use the same license as the "OpenSSL" library), and distribute the
+ linked executables. You must obey the GNU General Public License in
+ all respects for all of the code used other than "OpenSSL". If you
+ modify this file, you may extend this exception to your version of
+ the file, but you are not obligated to do so. If you do not wish to
+ do so, delete this exception statement from your version.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
 
-Upstream Author(s): Mark Janssen <maniac@maniac.nl> and Jos Visser <josv@osp.nl>
+Files: base64.c
+Copyright: 2001-2008 Mark Janssen and Jos Visser,
+ "The code in the fetchmail distribution is Copyright 1997 by Eric
+ S. Raymond.  Portions are also copyrighted by Carl Harris, 1993
+ and 1995.  Copyright retained for the purpose of protecting free
+ redistribution of source.",
+ Brendan Cully <brendan@kublai.com>
+License: GPL-2 with OpenSSL exception
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later
+ version.
+ .
+ Specific permission is granted for the GPLed code in this distribition to
+ be linked to OpenSSL without invoking GPL clause 2(b).
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
 
-Copyright:
+Files: setproctitle.c
+Copyright: 2003 Damien Miller,
+ 1983, 1995-1997 Eric P. Allman,
+ 1988, 1993 The Regents of the University of California.  All rights reserved.
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
 
-Proxytunnel is (C) Copyright 2001, 2004 Mark Janssen and Jos Visser
+Files: readpassphrase.c
+Copyright: 2000-2002 Todd C. Miller <Todd.Miller@courtesan.com>
+License: MIT
+ Permission to use, copy, modify, and distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-Proxytunnel is covered by the GNU GPL. It can be found in
-/usr/share/common-licenses/GPL. Most of the code was written by Jos
-Visser and Mark Janssen, the snippet of base64 code came from mutt,
-and was written by: Brendan Cully <brendan@kublai.com> and came with
-the following copyright notice:
-
-/* 
- * This code is heavily modified from fetchmail (also GPL'd, of
- * course) by Brendan Cully <brendan@kublai.com>.
- * 
- * Original copyright notice:
- * 
- * The code in the fetchmail distribution is Copyright 1997 by Eric
- * S. Raymond.  Portions are also copyrighted by Carl Harris, 1993
- * and 1995.  Copyright retained for the purpose of protecting free
- * redistribution of source. 
- */
-
-Other contributors can be found in the CREDITS file
-
+Files: debian/*
+Copyright: 2005-2014 Mark Janssen <maniac@maniac.nl>,
+ 2009-2014 Julian Gilbey <jdg@debian.org>
+License: GPL-2+
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later
+ version.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.

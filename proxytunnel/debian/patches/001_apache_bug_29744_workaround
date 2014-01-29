@@ -1,0 +1,142 @@
+--- a/cmdline.c
++++ b/cmdline.c
+@@ -59,6 +59,11 @@
+ " -e, --encrypt             SSL encrypt data between local proxy and destination\n"
+ " -E, --encrypt-proxy       SSL encrypt data between client and local proxy\n"
+ " -X, --encrypt-remproxy    SSL encrypt data between local and remote proxy\n"
++" -W, --wa-bug-29744        Workaround ASF Bugzilla 29744: if SSL is active stop\n"
++"                           using it after CONNECT (might not work on all setups; see\n"
++"                           /usr/share/doc/proxytunnel/README.Debian.gz)\n"
++" -B, --buggy-encrypt-proxy Equivalent to -E -W, provided for backwards\n"
++"                           compatibility\n"
+ #endif
+ "\n"
+ "Additional options for specific features:\n"
+@@ -131,6 +136,7 @@
+ 	args_info->encrypt_given = 0;
+ 	args_info->encryptproxy_given = 0;
+ 	args_info->encryptremproxy_given = 0;
++	args_info->wa_bug_29744_given = 0;
+ 	args_info->proctitle_given = 0;
+ 
+ /* No... we can't make this a function... -- Maniac */
+@@ -156,6 +162,7 @@
+ 	args_info->encrypt_flag = 0; \
+ 	args_info->encryptproxy_flag = 0; \
+ 	args_info->encryptremproxy_flag = 0; \
++	args_info->wa_bug_29744_flag = 0; \
+ 	args_info->proctitle_arg = NULL; \
+ } 
+ 
+@@ -198,12 +205,14 @@
+ 			{ "encrypt",		0, NULL, 'e' },
+ 			{ "encrypt-proxy",	0, NULL, 'E' },
+ 			{ "encrypt-remproxy",0,NULL, 'X' },
++			{ "wa-bug-29744",	0, NULL, 'W' },
++			{ "buggy-encrypt-proxy",	0, NULL, 'B' },
+ 			{ NULL,				0, NULL, 0 }
+ 		};
+ 
+-		c = getopt_long (argc, argv, "hVia:u:s:t:F:p:P:r:R:d:H:x:nvNeEXq", long_options, &option_index);
++		c = getopt_long (argc, argv, "hVia:u:s:t:F:p:P:r:R:d:H:x:nvNeEXWBq", long_options, &option_index);
+ #else
+-		c = getopt( argc, argv, "hVia:u:s:t:F:p:P:r:R:d:H:x:nvNeEXq" );
++		c = getopt( argc, argv, "hVia:u:s:t:F:p:P:r:R:d:H:x:nvNeEXWBq" );
+ #endif
+ 
+ 		if (c == -1)
+@@ -227,6 +236,19 @@
+ 				if( args_info->verbose_flag )
+ 					message("SSL client to proxy enabled\n");
+ 				break;
++
++			case 'W':	/* if SSL is active stop it after CONNECT */
++				args_info->wa_bug_29744_flag = !(args_info->wa_bug_29744_flag);
++				if( args_info->verbose_flag )
++					message("If SSL is active stop it after CONNECT\n");
++				break;
++
++			case 'B':	/* do -E -W */
++				args_info->wa_bug_29744_flag = !(args_info->wa_bug_29744_flag);
++				args_info->encryptproxy_flag = !(args_info->encryptproxy_flag);
++				if( args_info->verbose_flag )
++					message("SSL client to proxy enabled, only until CONNECT\n");
++				break;
+ #endif
+ 
+ 			case 'i':	/* Run from inetd. */
+--- a/cmdline.h
++++ b/cmdline.h
+@@ -47,6 +47,7 @@
+ 	int encrypt_flag;		/* Turn on SSL encryption (default=off). */
+ 	int encryptproxy_flag;	/* Turn on client to proxy SSL encryption (def=off).*/
+ 	int encryptremproxy_flag;  /* Turn on local to remote proxy SSL encryption (def=off).*/
++	int wa_bug_29744_flag;	/* Use SSL encryption only until CONNECT, if at all (def=off).*/
+ 	char *proctitle_arg;	/* Override process title (default=off). */
+ 	int help_given;			/* Whether help was given. */
+ 	int version_given;		/* Whether version was given. */
+@@ -70,6 +71,7 @@
+ 	int encrypt_given;		/* Whether encrypt was given */
+ 	int encryptproxy_given;	/* Whether encrypt was given */
+ 	int encryptremproxy_given;   /* Whether encrypt was given */
++	int wa_bug_29744_given;	/* Whether work around was given */
+ 	int proctitle_given;	/* Whether to override process title */
+ };
+ 
+--- a/docs/proxytunnel.1.txt
++++ b/docs/proxytunnel.1.txt
+@@ -46,6 +46,14 @@
+ *-X*, *--encrypt-remproxy*::
+     SSL encrypt data between local and remote (secondary) proxy
+ 
++*-W*, *--wa-bug-29744*::
++    If SSL is in use (by *-e*, *-E*, *-X* options), stop using it
++    immediately after the CONNECT exchange to workaround apache server
++    bugs.  (This might not work on all setups; see
++    /usr/share/doc/proxytunnel/README.Debian.gz for more details.)
++
++*-B*, *--buggy-encrypt-proxy*::
++    Equivalent to *-E -W*.  (Provided for backwards compatibility.)
+ 
+ == ADDITIONAL OPTIONS
+ 
+--- a/http.c
++++ b/http.c
+@@ -149,6 +149,11 @@
+ //	if( args_info.verbose_flag )
+ //		message( "Data received from local proxy:\n");
+ 
++	if( args_info.wa_bug_29744_flag && !args_info.encryptremproxy_flag && pts->ssl ) {
++		message( "Switching to non-SSL communication (local proxy)\n");
++		pts->ssl = 0;
++	}
++
+ 	/* Read the first line of the response and analyze it */
+ 	analyze_HTTP(pts);
+ 
+@@ -191,6 +196,11 @@
+ //		if( args_info.verbose_flag )
+ //			message( "Received from remote proxy:\n");
+ 
++		if( args_info.wa_bug_29744_flag && pts->ssl ) {
++			message( "Switching to non-SSL communication (remote proxy)\n");
++			pts->ssl = 0;
++		}
++
+ 		/* Read the first line of the response and analyze it */
+ 		analyze_HTTP(pts);
+ 	}
+--- a/README
++++ b/README
+@@ -35,6 +35,11 @@
+  -e, --encrypt             SSL encrypt data between local proxy and destination
+  -E, --encrypt-proxy       SSL encrypt data between client and local proxy
+  -X, --encrypt-remproxy    Encrypt between 1st and 2nd proxy using SSL
++ -W, --wa-bug-29744        workaround ASF Bugzilla 29744, if SSL is active stop
++                           using it after CONNECT (might not work on all setups;
++                           see /usr/share/doc/proxytunnel/README.Debian.gz)
++ -B, --buggy-encrypt-proxy Equivalent to -E -W, provided for backwards
++                           compatibility
+ 
+ Additional options for specific features:
+  -F, --passfile=STRING     File with credentials for proxy authentication

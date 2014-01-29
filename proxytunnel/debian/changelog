@@ -1,3 +1,81 @@
+proxytunnel (1.9.0+svn250-3) unstable; urgency=low
+
+  * Fix regression: FTBFS on some systems (Closes: #664470)
+
+ -- Julian Gilbey <jdg@debian.org>  Tue, 28 Jan 2014 20:13:50 +0000
+
+proxytunnel (1.9.0+svn250-2) unstable; urgency=low
+
+  * Add support for TLS SNI (Closes: #725830)
+
+ -- Julian Gilbey <jdg@debian.org>  Sun, 26 Jan 2014 23:08:39 +0000
+
+proxytunnel (1.9.0+svn250-1) unstable; urgency=medium
+
+  * New upstream release
+  * Revert to using OpenSSL following licensing change to allow this
+  * Convert copyright file to DEP-5 format
+  * Remove build dependency on hardening-includes; this is now dealt with
+    by debhelper
+
+ -- Julian Gilbey <jdg@debian.org>  Sun, 26 Jan 2014 20:13:49 +0000
+
+proxytunnel (1.9.0-6) unstable; urgency=low
+
+  * Apply new Apache bug workaround patch from Thomas Hilber
+    <Thomas.Hilber@enxio.de>, modified to allow -B as a backwards
+    compatibility option (Closes: #691884)
+  * Attempt to write to the socket multiple times until all data has been
+    written; patch by Ludovico Cavedon <cavedon@debian.org> (Closes:
+    #717771)
+
+ -- Julian Gilbey <jdg@debian.org>  Mon, 09 Sep 2013 18:26:59 +0100
+
+proxytunnel (1.9.0-5) unstable; urgency=low
+
+  * Improve documentation about the --buggy-encrypt-proxy option
+  * Apply hardening flags (build-depend on hardening-includes)
+
+ -- Julian Gilbey <jdg@debian.org>  Sun, 10 Jun 2012 10:23:14 +0100
+
+proxytunnel (1.9.0-4) unstable; urgency=low
+
+  * Add patch to support buggy Apache servers via the
+    --buggy-encrypt-proxy option (for more info on the bug, see
+    https://issues.apache.org/bugzilla/show_bug.cgi?id=29744)
+    - with thanks to Jim Paris <jim@jtan.com> for this patch (Closes:
+    #618698)
+  * Don't install changelog twice (Closes: #614689)
+  * Update Standards-Version and debhelper compat level
+  * Fix FTBFS on GNU/kFreeBSD. Thanks to Steven Chamberlain.  (Closes:
+    #664470)
+
+ -- Julian Gilbey <jdg@debian.org>  Sun, 29 Apr 2012 16:38:21 +0100
+
+proxytunnel (1.9.0-3) unstable; urgency=low
+
+  * Provide more useful error messages from GNUTLS
+  * Provide a watch file
+
+ -- Julian Gilbey <jdg@debian.org>  Mon, 29 Mar 2010 19:05:47 +0100
+
+proxytunnel (1.9.0-2) unstable; urgency=low
+
+  * Remove defunct debian/dirs file
+  * Update manpage
+
+ -- Julian Gilbey <jdg@debian.org>  Sun, 30 Aug 2009 22:00:43 +0100
+
+proxytunnel (1.9.0-1) unstable; urgency=high
+
+  * New upstream version
+  * Initial official Debian release (Closes: #166180)
+  * Rewrite encryption code to use GNUTLS instead of OpenSSL to avoid
+    licence clash issues (code is GPL, which conflicts with OpenSSL
+    licence)
+
+ -- Julian Gilbey <jdg@debian.org>  Thu, 20 Aug 2009 02:10:11 +0100
+
 proxytunnel (1.7.0-1) unstable; urgency=high
 
   * New upstream version
@@ -29,12 +107,12 @@ proxytunnel (1.2.0-1) unstable; urgency=low
   * Added patch by Fred Donck <fd0 at donck dot com> to store proxy username
     and password in environment variables.
 
- -- Mark Janssen <maniac@maniac.nl>  Thu Sep 30 11:22:03 CEST 2004
+ -- Mark Janssen <maniac@maniac.nl>  Thu, 30 Sep 2004 11:22:03 +0200
 
 proxytunnel (1.1.2-1) unstable; urgency=low
 
   * More cleaning up, added manpage.
-  * Added patches/suggestions by Loïc Le Guyader <loic.leguyader@laposte.net>
+  * Added patches/suggestions by Loic Le Guyader <loic.leguyader@laposte.net>
 
  -- Mark Janssen <maniac@maniac.nl>  Wed, 20 Nov 2002 15:12:10 +0200
 
