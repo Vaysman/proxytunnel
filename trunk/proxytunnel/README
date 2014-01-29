@@ -35,6 +35,11 @@ Standard options:
  -e, --encrypt             SSL encrypt data between local proxy and destination
  -E, --encrypt-proxy       SSL encrypt data between client and local proxy
  -X, --encrypt-remproxy    Encrypt between 1st and 2nd proxy using SSL
+ -W, --wa-bug-29744        workaround ASF Bugzilla 29744, if SSL is active stop
+                           using it after CONNECT (might not work on all setups;
+                           see /usr/share/doc/proxytunnel/README.Debian.gz)
+ -B, --buggy-encrypt-proxy Equivalent to -E -W, provided for backwards
+                           compatibility
 
 Additional options for specific features:
  -F, --passfile=STRING     File with credentials for proxy authentication

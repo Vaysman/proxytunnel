@@ -95,21 +95,35 @@ int stream_read(PTSTREAM *pts, void *buf, size_t len) {
 int stream_write(PTSTREAM *pts, void *buf, size_t len) {
 	/* Write the specified number of bytes from the buffer */
 	int bytes_written;
+	int total_bytes_written = 0;
 
-	if (!pts->ssl) {
-		/* For a non-SSL stream... */
-		bytes_written = write(pts->outgoing_fd, buf, len);
-	} else {
+	while (total_bytes_written < len) {
+		if (!pts->ssl) {
+			/* For a non-SSL stream... */
+			bytes_written = write(pts->outgoing_fd,
+					      buf + total_bytes_written,
+					      len - total_bytes_written);
+		} else {
 #ifdef USE_SSL
-		/* For an SSL stream... */
-		bytes_written = SSL_write(pts->ssl, buf, len);
+			/* For an SSL stream... */
+			bytes_written = SSL_write(pts->ssl,
+						  buf + total_bytes_written,
+						  len - total_bytes_written);
 #else
-		/* No SSL support, so must use a non-SSL stream */
-		bytes_written = write(pts->outgoing_fd, buf, len);
+			/* No SSL support, so must use a non-SSL stream */
+			bytes_written = write(pts->outgoing_fd,
+					      buf + total_bytes_written,
+					      len - total_bytes_written);
 #endif /* USE_SSL */
+		}
+
+		if (bytes_written <= 0) {
+			break;
+		}
+		total_bytes_written += bytes_written;
 	}
 
-	return bytes_written;
+	return total_bytes_written;
 }
 
 
@@ -145,17 +159,26 @@ int stream_copy(PTSTREAM *pts_from, PTSTREAM *pts_to) {
 /* Initiate an SSL handshake on this stream and encrypt all subsequent data */
 int stream_enable_ssl(PTSTREAM *pts) {
 #ifdef USE_SSL
-	SSL_METHOD *meth;
 	SSL *ssl;
 	SSL_CTX *ctx;
-	
+	int ret;
+
 	/* Initialise the connection */
 	SSLeay_add_ssl_algorithms();
-	meth = SSLv3_client_method();
 	SSL_load_error_strings();
 
-	ctx = SSL_CTX_new (meth);
+	ctx = SSL_CTX_new (SSLv3_client_method());
 	ssl = SSL_new (ctx);
+
+	if (args_info.verbose_flag) {
+		message("Set SNI hostname to %s\n", args_info.proxyhost_arg);
+	}
+	ret = SSL_set_tlsext_host_name(ssl, args_info.proxyhost_arg);
+	if (!ret) {
+		message("TLS SNI error, giving up: SSL_set_tlsext_host_name failed\n");
+		exit(1);
+	}
+
 	SSL_set_rfd (ssl, stream_get_incoming_fd(pts));
 	SSL_set_wfd (ssl, stream_get_outgoing_fd(pts));	
 	SSL_connect (ssl);
