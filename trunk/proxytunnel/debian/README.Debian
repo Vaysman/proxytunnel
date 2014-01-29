@@ -1,0 +1,74 @@
+proxytunnel for Debian
+----------------------
+
+Until version 1.9.0-5 of proxytunnel, Debian had a patch to handle
+buggy apache 2.2 installations in the form of the
+-B/--buggy-encrypt-proxy patch, due to Jim Paris <jim@jtan.com>.
+Users have had mixed success with this, though.
+
+Beginning with version 1.9.0-6, this patch has been superseded with
+one due to Thomas Hilber <Thomas.Hilber@enxio.de> (offered in
+bug#691884) which offers the more general -W or --wa-bug-29774 switch.
+The old -B switch is equivalent to -W -E, but -W can also be used in
+conjunction with -X, which was not possible with -B.  The -B switch is
+retained for compatibility purposes.
+
+
+The alternatives, if they are possible, is to either use Apache 2.4,
+which has been fixed in this respect, or to patch the Apache 2.2
+installation, should Apache 2.2 still be required.  This will need to
+be done for every release of Apache 2.2.
+
+The patching of Apache 2.2 can be performed as follows on releases of
+Debian up to Debian 7.x; later versions of Debian ship Apache 2.4,
+which does not require patching.  These instructions assume that you
+have the devscripts package installed.
+
+1. Download the apache2 source (here, "$ " indicates the shell prompt):
+   $ cd /tmp
+   $ apt-get source apache2
+
+2. Ensure that you have the required build dependencies installed:
+   [as root:]
+   # aptitude build-depends apache2
+   [or: apt-get build-dep apache2]
+
+3. Enter the apache directory and apply the patch:
+   $ cd apache2-2.2.22
+     # you may have to replace 2.2.22 with 2.2.xx if an updated 2.2
+     # version is released
+   $ export QUILT_PATCHES=debian/patches
+   $ quilt new 999_mod_proxy
+   $ quilt add modules/proxy/mod_proxy_connect.c
+   $ patch -p1 < /usr/share/doc/proxytunnel/mod-proxy.patch
+   $ quilt refresh
+     # ignore the "trailing whitespace" warning
+   $ dch --nmu 'Apply mod-proxy patch'
+     # this last command assumes that you have the devscripts package
+     # installed
+
+4. Build the package:
+   $ debuild -us -uc
+
+5. Now install the package.  My method is as follows.  First run:
+   $ dpkg -l | grep 2.2.22
+   This will list all of the currently installed Apache packages (and
+   possibly some non-apache ones too), for example:
+
+ii  apache2                                         2.2.22-6
+   Apache HTTP Server metapackage
+ii  apache2-doc                                     2.2.22-6
+   Apache HTTP Server documentation
+[...]
+
+   Now as root, do the following:
+
+   # cd /tmp
+   # dpkg -i apache2_2.2.22-6.1_amd64.deb apache2-doc_2.2.22-6.1_all.deb ...
+
+   where the packages listed on the dpkg -i line correspond to those
+   you already have installed.
+
+That's it!
+
+ -- Julian Gilbey <jdg@debian.org>, Sun, 26 Jan 2014 15:34:14 +0000
